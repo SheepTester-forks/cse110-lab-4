@@ -101,3 +101,46 @@
     (F) is `0` because both operands can be cast into a number: `false` becomes `0`, and `null` also becomes `0`. `0` + `0` = `0`.
 
     (G) is `'3undefined'` like (D) because `'3'` is a string, and `undefined` casts into `'undefined'`
+
+14. (A) is `true`. While string concatenation has precedence over floating-point addition for the `+` operator, for comparisons, numerical comparisons take priority over string comparisons. `'2'` is cast to a number as `2`, and `2` is greater than `1`.
+
+    (B) is `false` because both operands are a string, so it uses string comparison, which sorts the numbers alphabetically like in a dictionary. The first character of `'12'` is `1`, which has a Unicode code value 0x31, which comes before the first character of `'2'`, `2`, which has a Unicode code value 0x32. It is like how "an" goes before "n" when sorted alphabetically.
+
+    (C) is `true` because one operand is a string, while the other is a number, so `==`, the loose equality operator, casts `2` to a string, `'2'`. `'2'` and `'2'` are equivalent strings.
+
+    (D) is `false` because the types of the operands, number and string respectively, are not the same.
+
+    (E) is `false` because one operand is a boolean, and the other is a number, so the boolean gets casted to a number, `1`. `1` and `2` are not equal.
+
+    (F) is true because the `Boolean` function casts `2` to a boolean; since `2` is nonzero, it becomes `true`. `true` and `true` are equivalent.
+
+15. `===` returns false if its operands' types are different. `==` attempts to cast its operands to the same type before comparing them.
+
+16. ```js
+    for (const key in statistics) {
+      if (key.startsWith('r') || statistics[key] % 2 === 1) {
+        console.log(statistics[key])
+      }
+    }
+    ```
+
+17. It returns `[2, 4, 6]`.
+
+    `modifyArray` is similar to `Array.prototype.map`. It calls `callback` on every array item and stores the return values in a new array and returns it.
+
+    `modifyArray` is invoked with `doSomething` for `callback`, which multiplies its argument by 2. `modifyArray` calls `doSomething` on each item of the `array` argument, which is `[1, 2, 3]`. `1 * 2` is 2, `2 * 2` is 4, and `3 * 2` is 6. This results in `[2, 4, 6]`.
+
+18. ```js
+    setInterval(() => {
+      let d = new Date()
+      let time = d.toLocaleTimeString()
+      console.log(time)
+    }, 1000)
+    ```
+
+19. ```js
+    1
+    4
+    3
+    2
+    ```
